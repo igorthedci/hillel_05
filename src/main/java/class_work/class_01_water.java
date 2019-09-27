@@ -1,3 +1,5 @@
+package class_work;
+
 /**
  * mix of two water cups
  */
