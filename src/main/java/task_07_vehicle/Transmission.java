@@ -33,6 +33,7 @@ public class Transmission {
     public int getLevels() { return levels; }
 
     public void setActualLevel(int actualLevel) {
+        if (actualLevel == this.actualLevel) return;
         this.actualLevel = (actualLevel > levels) ? levels : actualLevel; // actualLevel is limited by 'levels'
         System.out.println("Transmission: actual level: " + this.actualLevel);
     }
@@ -47,6 +48,7 @@ public class Transmission {
                 "Transmission info:" +
                 "\n\tname: " + this.name +
                 "\n\tactual level: " + this.actualLevel +
+                "\n\tgear number: " + this.levels +
                 "\n\tactual limit: " + this.speedLimits[actualLevel] +
                 "\n\tspeed limits: " + Arrays.toString(this.speedLimits));
     }
@@ -54,15 +56,16 @@ public class Transmission {
     // ADJUST SPEED
     public int adjustSpeed(int aSpeed) {
         int aLevel = 0;
-        if (aSpeed < 0) {
+        if (aSpeed <= 0) {
             this.actualLevel = 0;
             setActualLevel(0);
             return 0;
         }
         if (this.name.equals("auto")) {
             for (int i = 1; i <= this.levels; i++) {
-                if (aSpeed < this.speedLimits[i]) {
+                if (aSpeed <= this.speedLimits[i]) {
                     aLevel = i;
+                    break;
                 }
             }
             if (aLevel > 0) {

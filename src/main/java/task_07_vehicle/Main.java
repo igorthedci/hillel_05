@@ -31,5 +31,21 @@ public class Main {
 //        for (int i = 0; i < 360; i += 10) {
 //            suzuki.drive(i, i);
 //        }
+        Car volvo = new Car("volvo", "red");
+        Transmission volvoTrs = new Transmission("auto", 5, new int[]{0, 20, 50, 90, 140, 200});
+        volvo.setTransmission(volvoTrs);
+
+        volvo.info();
+        volvo.drive(0, 0);
+        volvo.drive(10, 10);
+        volvo.getTransmission().setActualLevel(1);
+        volvo.drive(20, 20);
+        volvo.drive(30, 30);
+        volvo.drive(40, 40);
+        volvo.drive(50, 50);
+        volvo.drive(60, 60);
+        volvo.drive(70, 70);
+        volvo.drive(80, 80);
+
     }
 }
