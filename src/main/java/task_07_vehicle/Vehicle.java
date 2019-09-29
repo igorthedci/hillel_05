@@ -11,13 +11,13 @@ package task_07_vehicle;
  */
 public class Vehicle {
     private String name;
-    private String size;
+    private String color;
     private int currentVelocity;
     private int currentDirection;
 
-    public Vehicle(String name, String size) {
+    public Vehicle(String name, String color) {
         this.name = name;
-        this.size = size;
+        this.color = color;
         this.currentVelocity = 0;
         this.currentDirection = 0;
     }
@@ -26,8 +26,8 @@ public class Vehicle {
     public String getName() {
         return name;
     }
-    public String getSize() {
-        return size;
+    public String getColor() {
+        return color;
     }
     public int getCurrentVelocity() {
         return currentVelocity;

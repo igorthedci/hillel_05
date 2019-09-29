@@ -10,4 +10,20 @@ package task_07_vehicle;
  */
 public class Car extends Vehicle {
 
+    private Transmission transmission;
+
+    // CONSTRUCTORs
+
+    public Car(String name, String color) {
+        super(name, color);
+    }
+    public Car(String name, String color, Transmission transmission) {
+        super(name, color);
+        this.transmission = transmission;
+    }
+
+    // GETTERs and SETTERs
+    public void setTransmission(Transmission transmission) {
+        this.transmission = transmission;
+    }
 }
