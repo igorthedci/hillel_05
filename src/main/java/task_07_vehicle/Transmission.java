@@ -1,4 +1,7 @@
 package task_07_vehicle;
+
+import java.util.Arrays;
+
 /**
  *  *     You should be able to hand steering, changing gears, and moving(speed in other words).
  *  *     You will want to decide where to put the appropriate state and behaviours(fields and methods).
@@ -11,11 +14,15 @@ public class Transmission {
     private int actualLevel = 0; // 0 is a neutral transmission
     private int[] speedLimits; // a speed limit for each level
 
-    public Transmission(String name, int levels, int... speeds) {
+    public Transmission(String name, int levels, int[] speeds) {
         this.name = name;
         this.levels = levels;
         this.actualLevel = 0;
         this.speedLimits = speeds;
+//        this.speedLimits = new int[levels + 1];
+//        for (int i = 0; i <= levels; i++) {
+//            this.speedLimits[i] = speeds[i];
+//        }
     }
 
     // GETTERs & SETTERs
@@ -25,7 +32,10 @@ public class Transmission {
     public void setLevels(int levels) { this.levels = levels; }
     public int getLevels() { return levels; }
 
-    public void setActualLevel(int actualLevel) { this.actualLevel = actualLevel; }
+    public void setActualLevel(int actualLevel) {
+        this.actualLevel = (actualLevel > levels) ? levels : actualLevel; // actualLevel is limited by 'levels'
+        System.out.println("Transmission: actual level: " + this.actualLevel);
+    }
     public int getActualLevel() { return actualLevel; }
 
     public void setSpeedLimits(int[] speedLimits) { this.speedLimits = speedLimits; }
@@ -37,7 +47,8 @@ public class Transmission {
                 "Transmission info:" +
                 "\n\tname: " + this.name +
                 "\n\tactual level: " + this.actualLevel +
-                "\n\tspeed limit: " + this.speedLimits[actualLevel]);
+                "\n\tactual limit: " + this.speedLimits[actualLevel] +
+                "\n\tspeed limits: " + Arrays.toString(this.speedLimits));
     }
 
     // ADJUST SPEED
@@ -63,7 +74,11 @@ public class Transmission {
             }
         } else {
             int aLimit = this.speedLimits[this.actualLevel];
-            if (aSpeed > aLimit) aSpeed = aLimit;
+            if (aSpeed > aLimit) {
+                System.out.println(
+                        "Transmission[" + actualLevel + "]: speed limit is " + aLimit);
+                aSpeed = aLimit;
+            }
             return aSpeed;
         }
     }

@@ -26,4 +26,25 @@ public class Car extends Vehicle {
     public void setTransmission(Transmission transmission) {
         this.transmission = transmission;
     }
+    public Transmission getTransmission() {
+        return transmission;
+    }
+
+    // INFO
+    public void info() {
+        System.out.println(
+                "Car info:" +
+                        "\n\tname: " + this.getName() +
+                        "\n\tcolor: " + this.getColor() +
+                        "\n\tactual velocity: " + this.getCurrentVelocity() +
+                        "\n\tactual direction: " + this.getCurrentDirection());
+        this.transmission.info();
+    }
+    // DRIVE
+    public void drive(int aSpeed, int aDirection) {
+        int adjustSpeed = this.transmission.adjustSpeed(aSpeed);
+        this.move(adjustSpeed, aDirection);
+//        if (adjustSpeed != aSpeed)
+//            System.out.println("Transmission action is needed!");
+    }
 }

@@ -35,37 +35,27 @@ public class Printer {
     // return the rest of toner (color)
     public int getTonerLevel(String toner) {
         int restToner = 0;
-        switch (toner.toLowerCase()) {
-            case "black":
-                restToner = this.tonerLevelBlack;
-                break;
-            case "magenta":
-                restToner = this.tonerLevelMagenta;
-                break;
-            case "yellow":
-                restToner = this.tonerLevelYellow;
-                break;
-            case "blue":
-                restToner = this.tonerLevelBlue;
-                break;
+        if ("black".equals(toner.toLowerCase())) {
+            restToner = this.tonerLevelBlack;
+        } else if ("magenta".equals(toner.toLowerCase())) {
+            restToner = this.tonerLevelMagenta;
+        } else if ("yellow".equals(toner.toLowerCase())) {
+            restToner = this.tonerLevelYellow;
+        } else if ("blue".equals(toner.toLowerCase())) {
+            restToner = this.tonerLevelBlue;
         }
         return restToner;
     }
 
     public void fillUp(int tonerVolume, String color) {
-        switch (color.toLowerCase()) {
-            case "black":
-                this.tonerLevelBlack = 100;
-                break;
-            case "magenta":
-                this.tonerLevelMagenta = 100;
-                break;
-            case "yellow":
-                this.tonerLevelYellow = 100;
-                break;
-            case "blue":
-                this.tonerLevelBlue = 100;
-                break;
+        if ("black".equals(color.toLowerCase())) {
+            this.tonerLevelBlack = 100;
+        } else if ("magenta".equals(color.toLowerCase())) {
+            this.tonerLevelMagenta = 100;
+        } else if ("yellow".equals(color.toLowerCase())) {
+            this.tonerLevelYellow = 100;
+        } else if ("blue".equals(color.toLowerCase())) {
+            this.tonerLevelBlue = 100;
         }
     }
 
@@ -73,19 +63,14 @@ public class Printer {
     private void paintOut (int percent, String color) {
         if (percent <= 0) { return; }
 
-        switch (color.toLowerCase()) {
-            case "black":
-                this.tonerLevelBlack -= percent;
-                break;
-            case "magenta":
-                this.tonerLevelMagenta -= percent;
-                break;
-            case "yellow":
-                this.tonerLevelYellow -= percent;
-                break;
-            case "blue":
-                this.tonerLevelBlue -= percent;
-                break;
+        if ("black".equals(color.toLowerCase())) {
+            this.tonerLevelBlack -= percent;
+        } else if ("magenta".equals(color.toLowerCase())) {
+            this.tonerLevelMagenta -= percent;
+        } else if ("yellow".equals(color.toLowerCase())) {
+            this.tonerLevelYellow -= percent;
+        } else if ("blue".equals(color.toLowerCase())) {
+            this.tonerLevelBlue -= percent;
         }
     }
     // print several pages in the color
