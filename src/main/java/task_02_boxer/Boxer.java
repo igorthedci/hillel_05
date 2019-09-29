@@ -30,4 +30,4 @@ public class Boxer {
     public static void main(String[] args) {
 
     }
-}"
+}
