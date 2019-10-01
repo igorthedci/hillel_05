@@ -15,4 +15,18 @@ package task_08_remote_device;
  *
  */
 public class RemoteController {
+    TVDevice tvDevice;
+
+    public void connectDevice(TVDevice tv) {
+        this.tvDevice = tv;
+    }
+    public void disconnectDevice() {
+        this.tvDevice = null;
+    }
+    public void upVolume() {
+        this.upVolume();
+    }
+    public void downVolume() {
+        this.downVolume();
+    }
 }
