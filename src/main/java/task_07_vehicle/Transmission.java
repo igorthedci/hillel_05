@@ -8,11 +8,11 @@ import java.util.Arrays;
  *  *     As mentioned above, changing gears, increasing/decreasing speed should be included.
  *  *     For you specific type of vehicle you will want to add something specific for that type of car.
  */
-public class Transmission {
-    private String name; // "auto", "manual"
-    private int levels; // the number of transmission levels
-    private int actualLevel = 0; // 0 is a neutral transmission
-    private int[] speedLimits; // a speed limit for each level
+class Transmission {
+    String name; // "auto", "manual"
+    int levels; // the number of transmission levels
+    int actualLevel; // 0 is a neutral transmission
+    int[] speedLimits; // a speed limit for each level
 
     public Transmission(String name, int levels, int[] speeds) {
         this.name = name;
