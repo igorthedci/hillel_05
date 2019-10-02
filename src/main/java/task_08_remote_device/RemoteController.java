@@ -15,18 +15,44 @@ package task_08_remote_device;
  *
  */
 public class RemoteController {
-    TVDevice tvDevice;
+    String name; // name of remote controller
+    TVDevice tvDevice; // 'link' to a TV
 
+    // CONSTRUCTOR
+    public RemoteController(String name) {
+        this.name = name;
+    }
+    // SETTER
     public void connectDevice(TVDevice tv) {
         this.tvDevice = tv;
     }
     public void disconnectDevice() {
         this.tvDevice = null;
     }
+    public boolean checkIfDeviceConnected() {
+        return this.tvDevice != null;
+    }
+    // POWER METHODS
+    public void powerOn() {
+        this.tvDevice.powerOn();
+    }
+    public void powerOff() {
+        this.tvDevice.powerOff();
+    }
+    // VOLUME METHODS
     public void upVolume() {
-        this.upVolume();
+        if (this.tvDevice != null) {
+            this.tvDevice.upVolume();
+        }
     }
     public void downVolume() {
-        this.downVolume();
+        this.tvDevice.downVolume();
+    }
+    public void mute() {
+        this.tvDevice.mute();
+    }
+    // CHANNEL METHODS
+    public void switchTheChannel(int channel) {
+        this.tvDevice.setChannel(channel);
     }
 }
