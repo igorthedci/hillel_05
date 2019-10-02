@@ -12,7 +12,7 @@ public class Car extends Vehicle {
 
     private Transmission transmission;
 
-    // CONSTRUCTORs
+    // CONSTRUCTOR
 
     public Car(String name, String color) {
         super(name, color);
